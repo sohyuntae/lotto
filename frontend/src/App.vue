@@ -1,33 +1,27 @@
 <template>
   <div id="app">
-    <router-view/>
-    <confirmationDialog ref="globalAlertDialog" popupTitle="알림" :buttonType="0">  <!-- 0:닫기, 1:적용닫기, 2:예아니오 -->
-      <p class="main"> {{ this.messageContent }}</p>
-    </confirmationDialog>
+    <Lotto></Lotto>
   </div>
 </template>
 
 <script>
-import confirmationDialog from './components/common/Dialog/confirmationDialog';
 
+import Lotto from './components/views/Lotto/lotto_sunni';
 export default {
   name: 'App',
   components: {
-    confirmationDialog,
+    Lotto
   },
-  data() {
-    return {
-      messageContent: '',
-    };
+  data () {
   },
   methods: {
   },
-  created() {
-    window.$_app = this;
+  created () {
+    window.$_app = this
   },
-  mounted() {
-  },
-};
+  mounted () {
+  }
+}
 </script>
 
 <style>
