@@ -6,7 +6,7 @@
 
 <script>
 
-import Lotto from './components/views/Lotto/lotto_sunni';
+import Lotto from './components/views/Lotto/lotto_sunni'
 export default {
   name: 'App',
   components: {
