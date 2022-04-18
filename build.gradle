@@ -8,6 +8,11 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+ext {
+    springBootVersion = "2.6.6"
+    querydslVersion = "5.0.0"
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -20,7 +25,20 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa: ${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+    /* Querydsl */
+    implementation("com.querydsl:querydsl-jpa:${querydslVersion}")
+
+    /* Graphql spqr */
+    implementation("io.leangen.graphql:graphql-spqr-spring-boot-starter:latest.release")
+
+    /* Graphql */
+    // implementation("com.graphql-java-kickstart:graphiql-spring-boot-starter:latest.release")
+    // implementation("com.graphql-java-kickstart:graphql-webclient-spring-boot-starter:latest.release")
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
