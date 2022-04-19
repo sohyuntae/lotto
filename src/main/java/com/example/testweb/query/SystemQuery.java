@@ -1,0 +1,41 @@
+package com.example.testweb.query;
+
+
+import com.example.testweb.domain.Qstm_info;
+import com.example.testweb.domain.stm_info;
+import com.example.testweb.dto.SystemDto;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import io.leangen.graphql.annotations.GraphQLQuery;
+import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Component
+@GraphQLApi
+@RequiredArgsConstructor
+public class SystemQuery {
+    private final JPAQueryFactory queryFactory;
+
+    @GraphQLQuery
+    public List<SystemDto> getSystem() {
+        List<stm_info> domainList = queryFactory
+                .selectFrom(Qstm_info.stm_info)
+                .fetch();
+
+        return domainList
+                .stream()
+                .map(domain -> {
+                    SystemDto system = new SystemDto();
+                    system.setSystemKey(domain.getSiKey());
+                    system.setGroupKey(domain.getOgKey());
+                    system.setGroupUserKey(domain.getGuKey());
+                    system.setSystemName(domain.getSiNm());
+                    return system;
+                })
+                .collect(Collectors.toList());
+    }
+
+}
