@@ -1,0 +1,9 @@
+type usr_info {
+    uiKey: ID!
+    uiId: String!,
+    uiNm: String
+}
+
+input usrInfoParam {
+    uiKey: ID!
+}
