@@ -11,6 +11,7 @@ sourceCompatibility = '17'
 ext {
     springBootVersion = "2.6.6"
     querydslVersion = "5.0.0"
+    mariaConnectorVersion = "2.7.3"
 }
 
 configurations {
@@ -26,8 +27,10 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa: ${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    // 사용법에 대한 숙지가 아직 안됨.
+    // implementation("org.springframework.boot:spring-boot-starter-graphql")
 
     /* Querydsl */
     implementation("com.querydsl:querydsl-jpa:${querydslVersion}")
@@ -35,9 +38,15 @@ dependencies {
     /* Graphql spqr */
     implementation("io.leangen.graphql:graphql-spqr-spring-boot-starter:latest.release")
 
-    /* Graphql */
-    // implementation("com.graphql-java-kickstart:graphiql-spring-boot-starter:latest.release")
-    // implementation("com.graphql-java-kickstart:graphql-webclient-spring-boot-starter:latest.release")
+    /* Querydsl */
+    implementation("com.querydsl:querydsl-jpa:${querydslVersion}")
+    implementation("com.querydsl:querydsl-sql:${querydslVersion}")
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+
+    /* db */
+    implementation("org.mariadb.jdbc:mariadb-java-client:${mariaConnectorVersion}")
 
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
