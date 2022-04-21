@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <Lotto></Lotto>
+    <router-view/>
   </div>
 </template>
 
 <script>
 
-import Lotto from './components/views/Lotto/lotto_sunni'
 export default {
   name: 'App',
   components: {
-    Lotto
   },
   data () {
   },
