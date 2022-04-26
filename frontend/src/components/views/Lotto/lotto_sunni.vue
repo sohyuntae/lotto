@@ -46,10 +46,10 @@ export default {
   },
   methods: {
     initSys () {
-      console.log(1)
+      this.randomClass()
     },
     testCheckEvnt () {
-      console.log(2)
+      this.randomClass()
     },
     randomClass () {
       const balls = document.getElementsByClassName('ball')
@@ -67,7 +67,6 @@ export default {
   /* 페이지가 다 뜨고 난 후 실행 */
   mounted () {
     this.initSys()
-    this.randomClass()
   }
 }
 </script>
