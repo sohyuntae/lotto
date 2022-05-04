@@ -86,7 +86,7 @@
 
 <script type="text/javascript">
 
-import svgComponent from './svgComponent';
+import svgComponent from './svgComponent'
 
 export default {
   components: {
