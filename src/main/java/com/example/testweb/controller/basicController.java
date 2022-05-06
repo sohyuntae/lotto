@@ -1,5 +1,6 @@
 package com.example.testweb.controller;
 
+import com.example.testweb.service.annotation.protocolTest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StopWatch;
@@ -20,6 +21,7 @@ public class basicController {
         this.aopTestService = aopTestService;
     }
 
+    @protocolTest
     @RequestMapping(value = "/testAop")
     public void baseSelect(HttpServletRequest request, HttpServletResponse response) throws IOException, ModelAndViewDefiningException
     {
