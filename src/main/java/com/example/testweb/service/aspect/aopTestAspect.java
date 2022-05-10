@@ -35,8 +35,15 @@ public class aopTestAspect {
 
     // exception이 발생하지 않고 정상적으로 실행된 경우, 실행.
     @AfterReturning("@annotation(com.example.testweb.service.annotation.protocolTest)")
-    public void aspectTestLog_AfterReturning() {
+    public void aspectTestLog_AfterReturning_1() {
         log.info("After Returning");
+    }
+
+    // 리턴값 받아서 처리하는 부분
+    @AfterReturning(value ="@annotation(com.example.testweb.service.annotation.protocolTest)", returning = "returnValue")
+    public void aspectTestLog_AfterReturning_2(Object returnValue) {
+        log.info("After Returning");
+        log.info("returnValue : {}", returnValue);
     }
 
     // exception이 발생하지 않고 정상적으로 실행된 경우, 실행.
@@ -46,14 +53,11 @@ public class aopTestAspect {
     }
 
     // 메소드 실행 전.후 익셉션 발생 시점 등 다양하게 기능 설정. 및 구현 가능.
-    /* ProceedingJoinPoint Interface 정의
-    *
-    *  */
     @Around("@annotation(com.example.testweb.service.annotation.protocolTest)")
     public Object aspectTestLog3(ProceedingJoinPoint pjp) throws Throwable {
         // start stopwatch
         log.info("Around Start");
-        //
+        /*해당 Object 에는 메소드가 실행뒤의 결과값이 담겨 있다.*/
         Object result = pjp.proceed();
         // stop stopwatch
         log.info("Around End");

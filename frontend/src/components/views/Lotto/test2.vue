@@ -125,7 +125,6 @@ export default {
 
       let randBG = 0
       let getShape = 0
-      let c = 0
       let scale = 0
       let x = 0
       let y = 0
@@ -138,7 +137,6 @@ export default {
       for (let i = 0; i < num; i++) {
         randBG = Math.floor(Math.random() * this.colors.length)
         getShape = Math.floor(Math.random() * this.shapes.length)
-        c = Math.floor(Math.random() * 10) + 5
         scale = Math.floor(Math.random() * (8 - 4 + 1)) + 4
         x = Math.floor(Math.random() * (150 + 100)) - 100
         y = Math.floor(Math.random() * (150 + 100)) - 100
