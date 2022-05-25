@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class aopTestServiceImpl implements aopTestService{
 
     @Override
-    public Long sum(Long x, Long y) {
+    public Long sum(Long x, Long y, String z) {
         return x + y;
     }
 }

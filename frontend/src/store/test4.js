@@ -16,7 +16,26 @@ const getters = {
   getField
 }
 
-const actions = {}
+const actions = {
+  getSystemInfo: async () => {
+    const query = `{
+      query: system
+      {
+        groupKey
+        groupUserKey
+        systemKey
+        systemName
+      }
+    }`
+    try {
+      const result = await window.$_app.$graphqlRequest(query)
+      console.log(result)
+      return result.data.data.query
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
 
 const mutations = {
   updateField

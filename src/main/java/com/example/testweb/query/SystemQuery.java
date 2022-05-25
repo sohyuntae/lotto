@@ -19,10 +19,11 @@ import java.util.stream.Collectors;
 public class SystemQuery {
     private final JPAQueryFactory queryFactory;
 
-    @GraphQLQuery
+    @GraphQLQuery(description = "시스템 조회")
     public List<SystemDto> getSystem() {
         List<stm_info> domainList = queryFactory
                 .selectFrom(Qstm_info.stm_info)
+                .where(Qstm_info.stm_info.guKey.isNotNull())
                 .fetch();
 
         return domainList
@@ -37,5 +38,4 @@ public class SystemQuery {
                 })
                 .collect(Collectors.toList());
     }
-
 }

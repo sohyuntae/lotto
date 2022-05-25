@@ -29,7 +29,7 @@ public class basicController {
         StopWatch sw = new StopWatch();
         sw.start();
 
-        aopTestService.sum(1L, 2L);
+        aopTestService.sum(1L, 2L, "10101010101001");
 
         sw.stop();
 
