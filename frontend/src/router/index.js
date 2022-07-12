@@ -36,6 +36,11 @@ export default new Router({
       path: '/test4',
       name: 'test4',
       component: test4
+    },
+    {
+      path: '/tree',
+      name: 'tree',
+      component: test4
     }
   ]
 })

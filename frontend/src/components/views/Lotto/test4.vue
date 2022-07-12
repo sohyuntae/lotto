@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div id="test111">
     <label>test</label>
+    <br>
     <table>
       <tbody>
       <tr>
@@ -37,6 +38,7 @@ export default {
   },
   methods: {
     async initDate () {
+      // 스토어 사용이 안됨.
       // const systemInfo = this.$store.dispatch('test4/getSystemInfo')
       // console.log(systemInfo)
       const query = `{

@@ -1,12 +1,13 @@
 plugins {
     id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    // id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
     id 'java'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '18'
 
 ext {
     springBootVersion = "2.6.6"
@@ -29,7 +30,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 
+    // implementation 'com.graphql-java:graphql-spring-boot-starter:latest.release'
+    // implementation 'com.graphql-java:graphql-java-tools:latest.release'
+    // implementation 'com.graphql-java:graphiql-spring-boot-starter:latest.release'
+
     /* Graphql spqr */
+    // implementation("io.leangen.graphql:spqr:latest.release")
     implementation("io.leangen.graphql:graphql-spqr-spring-boot-starter:latest.release")
 
     /* Graphql */
@@ -56,3 +62,23 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+//querydsl 추가 시작
+//def querydslDir = "$buildDir/generated/querydsl"
+//
+//querydsl {
+//	jpa = true
+//	querydslSourcesDir = querydslDir
+//}
+//
+//sourceSets {
+//	main.java.srcDir querydslDir
+//}
+//
+//configurations {
+//	querydsl.extendsFrom compileClasspath
+//}
+//
+//compileQuerydsl {
+//	options.annotationProcessorPath = configurations.querydsl
+//}
